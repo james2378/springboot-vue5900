@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.BozhuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BozhuEntity" id="bozhuMap">
+        <result property="bozhuzhanghao" column="bozhuzhanghao"/>
+        <result property="mima" column="mima"/>
+        <result property="bozhuxingming" column="bozhuxingming"/>
+        <result property="touxiang" column="touxiang"/>
+        <result property="xingbie" column="xingbie"/>
+        <result property="nianling" column="nianling"/>
+        <result property="shouji" column="shouji"/>
+        <result property="youxiang" column="youxiang"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BozhuVO" >
+		SELECT * FROM bozhu  bozhu         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BozhuVO" >
+		SELECT  bozhu.* FROM bozhu  bozhu 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BozhuView" >
+
+		SELECT  bozhu.* FROM bozhu  bozhu 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BozhuView" >
+		SELECT * FROM bozhu  bozhu <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
